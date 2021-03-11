@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'sessions/new'
   get 'users/new'
   get 'pages/help'
   get 'pages/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'sessions/new'
   get 'users/new'
   get 'pages/help'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'sessions/new'
   get 'users/new'
   root 'pages#index'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'sessions/new'
   
   root 'pages#index'
@@ -33,5 +36,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :topics
+  
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
 end
 
