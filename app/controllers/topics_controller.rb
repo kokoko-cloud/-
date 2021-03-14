@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
 def index
   @topics = Topic.all.includes(:favorite_users)
 end
-
+  
 def new
     @topic = Topic.new
   end
@@ -16,6 +16,10 @@ def new
       flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
+    
+    def get_json_from_url(url)
+    JSON.parse(Net::HTTP.get(URI.parse(Addressable::URI.encode(url))))
+  end
   end
 
   private
